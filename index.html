@@ -42,16 +42,21 @@
     <div id="loading" class="ui active inverted dimmer">
       <div class="ui text loader">Loading</div>
     </div>
-    <div class="ui form" style="padding:1em;">
-      <div class="required field">
-        <label>姓名</label>
-        <input type="text" placeholder="姓名">
+    <div style="padding:0.5em;">
+      <div class="ui raised segment">
+        <h2>申請成為回報人</h2>
+        <div class="ui form" style="padding:0.5em;">
+          <div class="required field">
+            <label>姓名</label>
+            <input type="text" placeholder="姓名">
+          </div>
+          <div class="required field">
+            <label>小組名稱</label>
+            <input type="text" placeholder="小組名稱">
+          </div>
+          <div class="ui fluid submit button disabled" style="background-color:steelblue;color:white" onclick="applyAuth()">申請權限</div>
+        </div>
       </div>
-      <div class="required field">
-        <label>小組名稱</label>
-        <input type="text" placeholder="小組名稱">
-      </div>
-      <div class="ui fluid submit button disabled" style="background-color:steelblue;color:white">申請權限</div>
     </div>
   </body>
 </html>
