@@ -79,8 +79,8 @@ function applyAuth() {
 
   const postData = {
     type: 'apply_auth',
-    userName: "Name",
-    groupName: "Group",
+    userName: inputName,
+    groupName: inputGroup,
     lineId: lineId
   };
   //alert("post data: " + postData);
@@ -91,16 +91,25 @@ function applyAuth() {
     datatype: "json",
     data: postData,
     success: function (res, status) {
-      alert("server result: " + JSON.stringify(res) + "\nstatus: " + status);
+      //alert("server result: " + JSON.stringify(res) + "\nstatus: " + status);
       btn.className = "fluid ui submit button";
-      swal.fire({
-        title: '回報成功',
-        text: '點擊確定關閉視窗',
-        type: 'success',
-        onClose: () => {
-          liff.closeWindow();
-        }
-      });
+      
+      if(res.status === 200) {
+        swal.fire({
+          title: '申請成功',
+          text: '點擊確定關閉視窗',
+          type: 'success',
+          onClose: () => {
+            liff.closeWindow();
+          }
+        });
+      } else if (res.status === 202) {
+        swal.fire({
+          title: '申請重複',
+          text: '資料審查中，請耐心等候',
+          type: 'error'
+        });
+      }
     },
     error: function(xhr, ajaxOptions, thrownError) {
       btn.className = "fluid ui submit button";
