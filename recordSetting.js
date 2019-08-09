@@ -1,8 +1,17 @@
 const hostURL = "https://script.google.com/macros/s/AKfycbyQwaNfRrnyBB4kCOvdMgUw_o6v8Z_lNUDqjNCT5Uo-dPKBvZ0/exec";
 let lineId = "";
+let inputName = "";
+let inputGroup = "";
 
 //init
 window.onload = function (e) {
+
+  //init data
+  lineId = "";
+  inputName = "";
+  inputGroup = "";
+  document.getElementById("formName").value = "";
+  document.getElementById("formGroup").value = "";
 
   liff.init(
     data => {
@@ -40,7 +49,33 @@ function initializeApp(data) {
   });
 }
 
+function nameChange(element) {
+  //console.log(element.value);
+  checkBothFormFilled();
+}
+
+function groupChange(element) {
+  //console.log(element.value);
+  checkBothFormFilled();
+}
+
+function checkBothFormFilled () {
+  let formName  = document.getElementById("formName");
+  inputName = formName.value;
+
+  let formGroup = document.getElementById("formGroup");
+  inputGroup = formGroup.value;
+
+  //button enable/disable
+  let button = document.getElementById("btnApply");
+  if(inputName !== "" && inputGroup !== "") button.className = "ui fluid submit button";
+  else button.className = "ui fluid submit button disabled";
+}
+
 function applyAuth() {
+  //add loading to button
+  const btn = document.getElementById("btnApply");
+  btn.className = "fluid ui loading submit button";
 
   const postData = {
     type: 'apply_auth',
@@ -57,7 +92,7 @@ function applyAuth() {
     data: postData,
     success: function (res, status) {
       alert("server result: " + JSON.stringify(res) + "\nstatus: " + status);
-      btn.className = "fluid ui button";
+      btn.className = "fluid ui submit button";
       swal.fire({
         title: '回報成功',
         text: '點擊確定關閉視窗',
@@ -68,7 +103,7 @@ function applyAuth() {
       });
     },
     error: function(xhr, ajaxOptions, thrownError) {
-      btn.className = "fluid ui button";
+      btn.className = "fluid ui submit button";
       swal.fire({
         title: '錯誤',
         text: "post error: " + xhr.responseText + "\najaxOptions: " + ajaxOptions + "\nthrownError: " + thrownError,

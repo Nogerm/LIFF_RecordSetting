@@ -8,7 +8,7 @@
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     
     <!--src-->
-    <script src="recordShow.js"></script>
+    <script src="recordSetting.js"></script>
     <link rel="stylesheet" href="style.css">
 
     <!--axios-->
@@ -48,13 +48,13 @@
         <div class="ui form" style="padding:0.5em;">
           <div class="required field">
             <label>姓名</label>
-            <input type="text" placeholder="姓名">
+            <input id="formName" type="text" placeholder="姓名" oninput="nameChange(this)">
           </div>
           <div class="required field">
             <label>小組名稱</label>
-            <input type="text" placeholder="小組名稱">
+            <input id="formGroup" type="text" placeholder="小組名稱" oninput="groupChange(this)">
           </div>
-          <div class="ui fluid submit button disabled" style="background-color:steelblue;color:white" onclick="applyAuth()">申請權限</div>
+          <div id="btnApply" class="ui fluid submit button disabled" style="background-color:steelblue;color:white" onclick="applyAuth()">申請權限</div>
         </div>
       </div>
     </div>
