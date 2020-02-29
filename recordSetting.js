@@ -213,7 +213,7 @@ function applyFeedback() {
                 document.getElementById("issue-content").value = "";
                 liff.sendMessages([{
                     type: 'text',
-                    text: '意見回饋完成'
+                    text: '意見回饋完成，感謝您的寶貴意見，我們會儘速處理'
                   }])
                   .then(() => {
                     console.log('message sent');
