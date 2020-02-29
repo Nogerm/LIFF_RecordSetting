@@ -69,6 +69,22 @@
       <div id="btnFeedback" class="ui fluid submit button disabled" style="background-color:steelblue;color:white"
         onclick="applyFeedback()">送出</div>
     </div>
+    <div class="ui raised segment" id="add-member-segment" style="display: none;">
+      <h2>新增組員</h2>
+      <div class="ui form" style="padding:0.5em;">
+        <div class="required field">
+          <label>小組名稱</label>
+          <select class="ui fluid dropdown" id="add-member-select">
+          </select>
+        </div>
+        <div class="required field">
+          <label>新組員姓名</label>
+          <input id="newMemberName" type="text" placeholder="姓名" oninput="addMemberChange(this)">
+        </div>
+        <div id="btnAddMember" class="ui fluid submit button disabled" style="background-color:steelblue;color:white"
+          onclick="applyAddMember()">新增組員</div>
+      </div>
+    </div>
   </div>
 </body>
 
