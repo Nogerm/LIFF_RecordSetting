@@ -206,7 +206,7 @@ function applyFeedback() {
 
           if (res.status === 200) {
             swal.fire({
-              title: '回報成功，感謝你的幫助',
+              title: '回報成功，感謝您的寶貴意見，我們會儘速處理',
               text: '點擊確定關閉視窗',
               type: 'success',
               onClose: () => {
@@ -277,14 +277,14 @@ function applyAddMember() {
 
           if (res.status === 200) {
             swal.fire({
-              title: '回報成功，感謝你的幫助',
+              title: '新增組員成功',
               text: '點擊確定關閉視窗',
               type: 'success',
               onClose: () => {
                 document.getElementById("issue-content").value = "";
                 liff.sendMessages([{
                     type: 'text',
-                    text: '意見回饋完成'
+                    text: '新增組員 ' + newMemberName + ' 到 ' + selectedGroup + ' 成功'
                   }])
                   .then(() => {
                     console.log('message sent');
