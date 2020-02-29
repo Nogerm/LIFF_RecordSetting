@@ -1,62 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>設定</title>
-  
-    <!--liff-->
-    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
-    
-    <!--src-->
-    <script src="recordSetting.js"></script>
-    <link rel="stylesheet" href="style.css">
 
-    <!--axios-->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>設定</title>
 
-    <!--semantic ui-->  
-    <script src="semantic/semantic.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css">
-    
-    <!--google font-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Noto Sans', sans-serif;
-        font-size: 20px;
-      }
-    </style>
+  <!--liff-->
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 
-    <!--sweet alert-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <!--src-->
+  <script src="recordSetting.js"></script>
+  <link rel="stylesheet" href="style.css">
 
-  </head>
+  <!--axios-->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
-  <body>
-    <div id="loading" class="ui active inverted dimmer">
-      <div class="ui text loader">Loading</div>
-    </div>
-    <div style="padding:0.5em;">
-      <div class="ui raised segment">
-        <h2>申請成為回報人員</h2>
-        <div class="ui form" style="padding:0.5em;">
-          <div class="required field">
-            <label>姓名</label>
-            <input id="formName" type="text" placeholder="姓名" oninput="nameChange(this)">
-          </div>
-          <div class="required field">
-            <label>小組名稱</label>
-            <input id="formGroup" type="text" placeholder="小組名稱" oninput="groupChange(this)">
-          </div>
-          <div id="btnApply" class="ui fluid submit button disabled" style="background-color:steelblue;color:white" onclick="applyAuth()">申請權限</div>
+  <!--semantic ui-->
+  <script src="semantic/semantic.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css">
+
+  <!--google font-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+    }
+  </style>
+
+  <!--sweet alert-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+</head>
+
+<body>
+  <div id="loading" class="ui active inverted dimmer">
+    <div class="ui text loader">Loading</div>
+  </div>
+  <div style="padding:0.5em;">
+    <div class="ui raised segment">
+      <h2>申請成為回報人員</h2>
+      <div class="ui form" style="padding:0.5em;">
+        <div class="required field">
+          <label>姓名</label>
+          <input id="formName" type="text" placeholder="姓名" oninput="nameChange(this)">
         </div>
+        <div class="required field">
+          <label>小組名稱</label>
+          <input id="formGroup" type="text" placeholder="小組名稱" oninput="groupChange(this)">
+        </div>
+        <div id="btnApply" class="ui fluid submit button disabled" style="background-color:steelblue;color:white"
+          onclick="applyAuth()">申請權限</div>
       </div>
     </div>
-  </body>
+    <div class="ui raised segment">
+      <h2>意見回饋</h2>
+      <div class="ui form" style="padding-bottom:0.5em;">
+        <div class="field">
+          <textarea id="issue-content" placeholder="請輸入你遇到的問題" oninput="feedbackChange(this)"></textarea>
+        </div>
+      </div>
+      <div id="btnFeedback" class="ui fluid submit button disabled" style="background-color:steelblue;color:white"
+        onclick="applyFeedback()">送出</div>
+    </div>
+  </div>
+</body>
+
 </html>
